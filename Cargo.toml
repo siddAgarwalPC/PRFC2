@@ -9,8 +9,8 @@ edition = "2021"
 crate-type = ["cdylib"]
 
 [dependencies]
-pchain_sdk = { package = "pchain-sdk", version = "0.2.0" }
-pchain-types = { package = "pchain-types" , version = "0.2.0" }
+pchain_sdk = { package = "pchain-sdk", version = "0.3" }
+pchain-types = { package = "pchain-types" , version = "0.3" }
 borsh = "0.9.3"
 
 

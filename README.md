@@ -140,9 +140,3 @@ Gets triggered on successful call to method 'set_spender'.
 | Value | Empty. |
 
 Gets triggered on successful call to method 'set_exclusive_spender'. 
-
-## Copyright
-  
-[GNU Public License 3](https://www.gnu.org/licenses/gpl-3.0.en.html).
-
-
