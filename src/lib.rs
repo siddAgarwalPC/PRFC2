@@ -19,31 +19,48 @@ impl PRFC2Implementor {
     #[init]
     fn init(){
         let mut tokens = IterableMap::new();
-        let ian_h = Token {
-            id: "1".to_string(),
-            name: "Ian Huang".to_string(),
-            metadata: "".to_string(),
-            uri: "https://cms.parallelchain.io//uploads/Ian_Huang_a71cb09f0b.png".to_string(),
-            owner: pchain_types::Base64URL::decode(&"KR6vMY3hzSkGSLhSkZAGep8PoqLFf0kYOw4_eGWFTJQ".to_string()).unwrap().try_into().unwrap(),
-            spender: pchain_types::Base64URL::decode(&"KR6vMY3hzSkGSLhSkZAGep8PoqLFf0kYOw4_eGWFTJQ".to_string()).unwrap().try_into().unwrap(),
-            exclusive_spender: pchain_types::Base64URL::decode(&"KR6vMY3hzSkGSLhSkZAGep8PoqLFf0kYOw4_eGWFTJQ".to_string()).unwrap().try_into().unwrap()
-        };
-        tokens.insert(&"1".to_string(), ian_h);
-        let sanzhar_n = Token {
-            id: "2".to_string(),
-            name: "Sanzhar Nussipbek".to_string(),
-            metadata: "".to_string(),
-            uri: "https://cms.parallelchain.io//uploads/Sanzhar_Nussipbek_37a1fcc0a5.png".to_string(),
-            owner: pchain_types::Base64URL::decode(&"KR6vMY3hzSkGSLhSkZAGep8PoqLFf0kYOw4_eGWFTJQ".to_string()).unwrap().try_into().unwrap(),
-            spender: pchain_types::Base64URL::decode(&"KR6vMY3hzSkGSLhSkZAGep8PoqLFf0kYOw4_eGWFTJQ".to_string()).unwrap().try_into().unwrap(),
-            exclusive_spender: pchain_types::Base64URL::decode(&"KR6vMY3hzSkGSLhSkZAGep8PoqLFf0kYOw4_eGWFTJQ".to_string()).unwrap().try_into().unwrap()
-        };
-        tokens.insert(&"2".to_string(), sanzhar_n);
+
+        let all_tokens = 
+        [   
+            Token {
+                id:"1".to_string(), 
+                name:"Mystic duck".to_string(),
+                uri:"https://cms.parallelchain.io/uploads/prfc2_kezia_duck_1a9f6c738e.png".to_string(),
+                metadata:"".to_string(),
+                owner: pchain_types::Base64URL::decode(&"-HcAllwug6CYTKIsATsa7yPk8wpNd4b7DBXkaD0kzko".to_string()).unwrap().try_into().unwrap(),
+                spender: pchain_types::Base64URL::decode(&"-HcAllwug6CYTKIsATsa7yPk8wpNd4b7DBXkaD0kzko".to_string()).unwrap().try_into().unwrap(),
+                exclusive_spender: pchain_types::Base64URL::decode(&"-HcAllwug6CYTKIsATsa7yPk8wpNd4b7DBXkaD0kzko".to_string()).unwrap().try_into().unwrap()
+            },
+            Token {
+                id:"2".to_string(), 
+                name:"Suburban dogs".to_string(),
+                uri:"https://cms.parallelchain.io/uploads/prfc2_kezia_dogs_9155af2e83.png".to_string(),
+                metadata:" ".to_string(),
+                owner: pchain_types::Base64URL::decode(&"-HcAllwug6CYTKIsATsa7yPk8wpNd4b7DBXkaD0kzko".to_string()).unwrap().try_into().unwrap(),
+                spender: pchain_types::Base64URL::decode(&"-HcAllwug6CYTKIsATsa7yPk8wpNd4b7DBXkaD0kzko".to_string()).unwrap().try_into().unwrap(),
+                exclusive_spender: pchain_types::Base64URL::decode(&"-HcAllwug6CYTKIsATsa7yPk8wpNd4b7DBXkaD0kzko".to_string()).unwrap().try_into().unwrap()
+            },
+            Token {
+                id:"3".to_string(), 
+                name:"Bag'o Fish".to_string(),
+                uri:"https://cms.parallelchain.io/uploads/prfc2_kezia_fish_59ff1d61a0.png".to_string(),
+                metadata:"".to_string(),
+                owner: pchain_types::Base64URL::decode(&"-HcAllwug6CYTKIsATsa7yPk8wpNd4b7DBXkaD0kzko".to_string()).unwrap().try_into().unwrap(),
+                spender: pchain_types::Base64URL::decode(&"-HcAllwug6CYTKIsATsa7yPk8wpNd4b7DBXkaD0kzko".to_string()).unwrap().try_into().unwrap(),
+                exclusive_spender: pchain_types::Base64URL::decode(&"-HcAllwug6CYTKIsATsa7yPk8wpNd4b7DBXkaD0kzko".to_string()).unwrap().try_into().unwrap()
+            }
+        ];
+    
+        for i in 0..all_tokens.len() {
+            let token = all_tokens[i].clone();
+            tokens.insert(&i.to_string(), token);
+        }
+    
         let collection = Collection{
-            name:"Parallelchain team collection".to_string(),
-            symbol:"PCLTeam".to_string(),
+            name:"Kezia's art collection".to_string(),
+            symbol:"EKA".to_string(),
             tokens:tokens,
-            uri:"https://parallelchain.io/company/team".to_string()
+            uri:"".to_string()
         };
         PRFC2Implementor{
             collection: collection
